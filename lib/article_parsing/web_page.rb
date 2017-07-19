@@ -37,7 +37,12 @@ module ArticleParsing
       uri.to_s
     end
 
+    def internal_site_links
+      urls_by_domain(uri.domain)
+    end
+
     def initialize(url, options={})
+      #TODO: The custom URI did not pan out, replace it
       @uri = ArticleParsing::URI.new(url)
       @options = options
       @parsed = Nokogiri::HTML::Document.parse(Fetcher.fetch(uri.to_s))
