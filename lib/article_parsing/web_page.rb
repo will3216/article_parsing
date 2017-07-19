@@ -38,7 +38,7 @@ module ArticleParsing
     end
 
     def internal_site_links
-      urls_by_domain(uri.domain)
+      uris_by_domain(uri.domain).map(&:to_s)
     end
 
     def initialize(url, options={})
@@ -64,7 +64,7 @@ module ArticleParsing
       end.compact
     end
 
-    def urls_by_domain(target_domain)
+    def uris_by_domain(target_domain)
       # QUESTION: Maybe build a hash?
       all_uris.select do |filter_uri|
         filter_uri.domain == target_domain
