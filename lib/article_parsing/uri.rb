@@ -21,7 +21,7 @@ module ArticleParsing
     end
 
     def domain
-      uri.host.try(:[], -2..-1).try(:*, '.') if valid?
+      uri.host.split('.').try(:[], -2..-1).try(:*, '.') if valid?
     end
   end
 end

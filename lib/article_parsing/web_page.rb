@@ -61,7 +61,7 @@ module ArticleParsing
         rescue ::URI::InvalidURIError
           nil
         end
-      end
+      end.compact
     end
 
     def urls_by_domain(target_domain)
