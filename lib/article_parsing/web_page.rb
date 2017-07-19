@@ -38,6 +38,8 @@ module ArticleParsing
     end
 
     def internal_site_links
+      domain = uri.domain
+      return [] unless domain
       uris_by_domain(uri.domain).map(&:to_s)
     end
 
